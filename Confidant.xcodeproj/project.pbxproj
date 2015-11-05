@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19AED6C51BEB8CF8004BB2E3 /* NetSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AED6C41BEB8CF8004BB2E3 /* NetSender.m */; };
+		19AED6C81BEB93D3004BB2E3 /* modelUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AED6C71BEB93D3004BB2E3 /* modelUtil.m */; };
 		19DDA40E1BE24F7200DD7661 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDA40D1BE24F7200DD7661 /* RegisterController.m */; };
 		19E0D68D1BE111CB001897F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0D68C1BE111CB001897F3 /* main.m */; };
 		19E0D6901BE111CB001897F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0D68F1BE111CB001897F3 /* AppDelegate.m */; };
@@ -36,6 +38,20 @@
 		19E364801BE6565C00B28498 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E3647F1BE6565C00B28498 /* MessageUI.framework */; };
 		19E364821BE6566700B28498 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E364811BE6566700B28498 /* JavaScriptCore.framework */; };
 		19E364841BE6567600B28498 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E364831BE6567600B28498 /* libstdc++.tbd */; };
+		19E7ED161BE8EF6F008678F1 /* CommitInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED151BE8EF6F008678F1 /* CommitInfoController.m */; };
+		19E7ED561BE91A95008678F1 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19E7ED401BE91A95008678F1 /* FontAwesome.ttf */; };
+		19E7ED571BE91A95008678F1 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED421BE91A95008678F1 /* NSString+FontAwesome.m */; };
+		19E7ED581BE91A95008678F1 /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED441BE91A95008678F1 /* UIButton+Bootstrap.m */; };
+		19E7ED591BE91A95008678F1 /* YUDIVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED471BE91A95008678F1 /* YUDIVView.m */; };
+		19E7ED5A1BE91A95008678F1 /* UIColor+YUColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED491BE91A95008678F1 /* UIColor+YUColor.m */; };
+		19E7ED5B1BE91A95008678F1 /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED4B1BE91A95008678F1 /* UIView+YUStyle.m */; };
+		19E7ED5C1BE91A95008678F1 /* UIWindow+YUBottomPoper.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED4D1BE91A95008678F1 /* UIWindow+YUBottomPoper.m */; };
+		19E7ED5D1BE91A95008678F1 /* yConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED4F1BE91A95008678F1 /* yConst.m */; };
+		19E7ED5E1BE91A95008678F1 /* YUBottomPopSelctModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED511BE91A95008678F1 /* YUBottomPopSelctModel.m */; };
+		19E7ED5F1BE91A95008678F1 /* YUBottomPopSelctView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED531BE91A95008678F1 /* YUBottomPopSelctView.m */; };
+		19E7ED601BE91A95008678F1 /* YUDarkGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED551BE91A95008678F1 /* YUDarkGlassView.m */; };
+		19E7ED631BEA2FB2008678F1 /* UIIamge+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED621BEA2FB2008678F1 /* UIIamge+Circle.m */; };
+		19E7ED691BEA4186008678F1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED681BEA4186008678F1 /* User.m */; };
 		4FC0E038636E26A1B3B36AD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9FEE2547B0179FDFE862B8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19AED6C21BEB8CF8004BB2E3 /* NetDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetDefine.h; sourceTree = "<group>"; };
+		19AED6C31BEB8CF8004BB2E3 /* NetSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetSender.h; sourceTree = "<group>"; };
+		19AED6C41BEB8CF8004BB2E3 /* NetSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetSender.m; sourceTree = "<group>"; };
+		19AED6C61BEB93D3004BB2E3 /* modelUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modelUtil.h; sourceTree = "<group>"; };
+		19AED6C71BEB93D3004BB2E3 /* modelUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modelUtil.m; sourceTree = "<group>"; };
 		19DDA40C1BE24F7200DD7661 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		19DDA40D1BE24F7200DD7661 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		19E0D6881BE111CA001897F3 /* Confidant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Confidant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +125,33 @@
 		19E364811BE6566700B28498 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		19E364831BE6567600B28498 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		19E364851BE6577900B28498 /* Constans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constans.h; sourceTree = "<group>"; };
+		19E7ED141BE8EF6F008678F1 /* CommitInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitInfoController.h; sourceTree = "<group>"; };
+		19E7ED151BE8EF6F008678F1 /* CommitInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitInfoController.m; sourceTree = "<group>"; };
+		19E7ED401BE91A95008678F1 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		19E7ED411BE91A95008678F1 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		19E7ED421BE91A95008678F1 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		19E7ED431BE91A95008678F1 /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
+		19E7ED441BE91A95008678F1 /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
+		19E7ED461BE91A95008678F1 /* YUDIVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDIVView.h; sourceTree = "<group>"; };
+		19E7ED471BE91A95008678F1 /* YUDIVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDIVView.m; sourceTree = "<group>"; };
+		19E7ED481BE91A95008678F1 /* UIColor+YUColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YUColor.h"; sourceTree = "<group>"; };
+		19E7ED491BE91A95008678F1 /* UIColor+YUColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YUColor.m"; sourceTree = "<group>"; };
+		19E7ED4A1BE91A95008678F1 /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
+		19E7ED4B1BE91A95008678F1 /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
+		19E7ED4C1BE91A95008678F1 /* UIWindow+YUBottomPoper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+YUBottomPoper.h"; sourceTree = "<group>"; };
+		19E7ED4D1BE91A95008678F1 /* UIWindow+YUBottomPoper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+YUBottomPoper.m"; sourceTree = "<group>"; };
+		19E7ED4E1BE91A95008678F1 /* yConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yConst.h; sourceTree = "<group>"; };
+		19E7ED4F1BE91A95008678F1 /* yConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yConst.m; sourceTree = "<group>"; };
+		19E7ED501BE91A95008678F1 /* YUBottomPopSelctModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUBottomPopSelctModel.h; sourceTree = "<group>"; };
+		19E7ED511BE91A95008678F1 /* YUBottomPopSelctModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBottomPopSelctModel.m; sourceTree = "<group>"; };
+		19E7ED521BE91A95008678F1 /* YUBottomPopSelctView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUBottomPopSelctView.h; sourceTree = "<group>"; };
+		19E7ED531BE91A95008678F1 /* YUBottomPopSelctView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBottomPopSelctView.m; sourceTree = "<group>"; };
+		19E7ED541BE91A95008678F1 /* YUDarkGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDarkGlassView.h; sourceTree = "<group>"; };
+		19E7ED551BE91A95008678F1 /* YUDarkGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDarkGlassView.m; sourceTree = "<group>"; };
+		19E7ED611BEA2FB2008678F1 /* UIIamge+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIIamge+Circle.h"; sourceTree = "<group>"; };
+		19E7ED621BEA2FB2008678F1 /* UIIamge+Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIIamge+Circle.m"; sourceTree = "<group>"; };
+		19E7ED681BEA4186008678F1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		19E7ED6A1BEA41AC008678F1 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		947AC7FE85E74F57B83B6081 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9FEB77E86DAFD21DEE111BFA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DB9FEE2547B0179FDFE862B8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,9 +190,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19AED6C11BEB8CF8004BB2E3 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				19AED6C21BEB8CF8004BB2E3 /* NetDefine.h */,
+				19AED6C31BEB8CF8004BB2E3 /* NetSender.h */,
+				19AED6C41BEB8CF8004BB2E3 /* NetSender.m */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
 		19E0D67F1BE111CA001897F3 = {
 			isa = PBXGroup;
 			children = (
+				19E7ED3E1BE91A95008678F1 /* YUScreentPoper */,
 				19E0D6C51BE11305001897F3 /* MYBlurIntroductionView */,
 				19E0D68A1BE111CB001897F3 /* Confidant */,
 				19E0D6A71BE111CB001897F3 /* ConfidantTests */,
@@ -168,10 +227,12 @@
 		19E0D68A1BE111CB001897F3 /* Confidant */ = {
 			isa = PBXGroup;
 			children = (
+				19E7ED641BEA410D008678F1 /* model */,
 				19E177FF1BE5275400BB5803 /* CustomView */,
 				19E0D6C11BE11265001897F3 /* Controller */,
 				19E0D68E1BE111CB001897F3 /* AppDelegate.h */,
 				19E0D68F1BE111CB001897F3 /* AppDelegate.m */,
+				19AED6C11BEB8CF8004BB2E3 /* Net */,
 				19E0D6941BE111CB001897F3 /* Main.storyboard */,
 				19E0D69A1BE111CB001897F3 /* Assets.xcassets */,
 				19E0D6CF1BE11564001897F3 /* SplashItem.xib */,
@@ -225,6 +286,8 @@
 				19E1696C1BE465E100947DDE /* FateController.m */,
 				19E169881BE4CFDE00947DDE /* MsgController.h */,
 				19E169891BE4CFDE00947DDE /* MsgController.m */,
+				19E7ED141BE8EF6F008678F1 /* CommitInfoController.h */,
+				19E7ED151BE8EF6F008678F1 /* CommitInfoController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,6 +308,8 @@
 		19E177FF1BE5275400BB5803 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				19E7ED611BEA2FB2008678F1 /* UIIamge+Circle.h */,
+				19E7ED621BEA2FB2008678F1 /* UIIamge+Circle.m */,
 				19E178001BE5275400BB5803 /* MsgTBCell.h */,
 				19E178011BE5275400BB5803 /* MsgTBCell.m */,
 				19E178021BE5275400BB5803 /* MsgTBCell.xib */,
@@ -266,6 +331,61 @@
 				19E364751BE6551C00B28498 /* SMS_SDKLocalizable.strings */,
 			);
 			path = "zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
+		19E7ED3E1BE91A95008678F1 /* YUScreentPoper */ = {
+			isa = PBXGroup;
+			children = (
+				19E7ED3F1BE91A95008678F1 /* Button */,
+				19E7ED451BE91A95008678F1 /* DIVVIEW */,
+				19E7ED481BE91A95008678F1 /* UIColor+YUColor.h */,
+				19E7ED491BE91A95008678F1 /* UIColor+YUColor.m */,
+				19E7ED4A1BE91A95008678F1 /* UIView+YUStyle.h */,
+				19E7ED4B1BE91A95008678F1 /* UIView+YUStyle.m */,
+				19E7ED4C1BE91A95008678F1 /* UIWindow+YUBottomPoper.h */,
+				19E7ED4D1BE91A95008678F1 /* UIWindow+YUBottomPoper.m */,
+				19E7ED4E1BE91A95008678F1 /* yConst.h */,
+				19E7ED4F1BE91A95008678F1 /* yConst.m */,
+				19E7ED501BE91A95008678F1 /* YUBottomPopSelctModel.h */,
+				19E7ED511BE91A95008678F1 /* YUBottomPopSelctModel.m */,
+				19E7ED521BE91A95008678F1 /* YUBottomPopSelctView.h */,
+				19E7ED531BE91A95008678F1 /* YUBottomPopSelctView.m */,
+				19E7ED541BE91A95008678F1 /* YUDarkGlassView.h */,
+				19E7ED551BE91A95008678F1 /* YUDarkGlassView.m */,
+			);
+			path = YUScreentPoper;
+			sourceTree = "<group>";
+		};
+		19E7ED3F1BE91A95008678F1 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				19E7ED401BE91A95008678F1 /* FontAwesome.ttf */,
+				19E7ED411BE91A95008678F1 /* NSString+FontAwesome.h */,
+				19E7ED421BE91A95008678F1 /* NSString+FontAwesome.m */,
+				19E7ED431BE91A95008678F1 /* UIButton+Bootstrap.h */,
+				19E7ED441BE91A95008678F1 /* UIButton+Bootstrap.m */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		19E7ED451BE91A95008678F1 /* DIVVIEW */ = {
+			isa = PBXGroup;
+			children = (
+				19E7ED461BE91A95008678F1 /* YUDIVView.h */,
+				19E7ED471BE91A95008678F1 /* YUDIVView.m */,
+			);
+			path = DIVVIEW;
+			sourceTree = "<group>";
+		};
+		19E7ED641BEA410D008678F1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				19E7ED681BEA4186008678F1 /* User.m */,
+				19E7ED6A1BEA41AC008678F1 /* User.h */,
+				19AED6C61BEB93D3004BB2E3 /* modelUtil.h */,
+				19AED6C71BEB93D3004BB2E3 /* modelUtil.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A46B45D09D55C4FC73DF8163 /* Pods */ = {
@@ -406,6 +526,7 @@
 				19E178041BE5275400BB5803 /* MsgTBCell.xib in Resources */,
 				19E3647A1BE6551C00B28498 /* SMS_SDKLocalizable.strings in Resources */,
 				19E0D69E1BE111CB001897F3 /* LaunchScreen.storyboard in Resources */,
+				19E7ED561BE91A95008678F1 /* FontAwesome.ttf in Resources */,
 				19E0D6D01BE11564001897F3 /* SplashItem.xib in Resources */,
 				19E0D69B1BE111CB001897F3 /* Assets.xcassets in Resources */,
 				19E364771BE6551C00B28498 /* SMS_SDKLocalizable.strings in Resources */,
@@ -467,16 +588,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E7ED691BEA4186008678F1 /* User.m in Sources */,
 				19E1698A1BE4CFDE00947DDE /* MsgController.m in Sources */,
+				19E7ED601BE91A95008678F1 /* YUDarkGlassView.m in Sources */,
+				19E7ED5A1BE91A95008678F1 /* UIColor+YUColor.m in Sources */,
 				19E0D6C41BE11265001897F3 /* SplashController.m in Sources */,
 				19E1696D1BE465E100947DDE /* FateController.m in Sources */,
+				19AED6C51BEB8CF8004BB2E3 /* NetSender.m in Sources */,
 				19E178031BE5275400BB5803 /* MsgTBCell.m in Sources */,
+				19E7ED581BE91A95008678F1 /* UIButton+Bootstrap.m in Sources */,
+				19E7ED161BE8EF6F008678F1 /* CommitInfoController.m in Sources */,
+				19E7ED591BE91A95008678F1 /* YUDIVView.m in Sources */,
 				19E0D6D31BE1183B001897F3 /* LoginController.m in Sources */,
+				19E7ED5F1BE91A95008678F1 /* YUBottomPopSelctView.m in Sources */,
 				19E0D6CD1BE11305001897F3 /* MYBlurIntroductionView.m in Sources */,
+				19E7ED5E1BE91A95008678F1 /* YUBottomPopSelctModel.m in Sources */,
+				19E7ED5B1BE91A95008678F1 /* UIView+YUStyle.m in Sources */,
+				19E7ED5C1BE91A95008678F1 /* UIWindow+YUBottomPoper.m in Sources */,
 				19E0D6991BE111CB001897F3 /* Confidant.xcdatamodeld in Sources */,
 				19E0D6901BE111CB001897F3 /* AppDelegate.m in Sources */,
+				19AED6C81BEB93D3004BB2E3 /* modelUtil.m in Sources */,
 				19DDA40E1BE24F7200DD7661 /* RegisterController.m in Sources */,
 				19E0D6CE1BE11305001897F3 /* MYIntroductionPanel.m in Sources */,
+				19E7ED5D1BE91A95008678F1 /* yConst.m in Sources */,
+				19E7ED631BEA2FB2008678F1 /* UIIamge+Circle.m in Sources */,
+				19E7ED571BE91A95008678F1 /* NSString+FontAwesome.m in Sources */,
 				19E0D68D1BE111CB001897F3 /* main.m in Sources */,
 				19E0D6CC1BE11305001897F3 /* AMBlurView.m in Sources */,
 				19E3646E1BE619C900B28498 /* ChatListViewController.m in Sources */,

@@ -268,7 +268,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpClick:" destination="bpU-Z0-Yne" eventType="touchUpInside" id="ijV-bx-rem"/>
-                                    <segue destination="FA2-Qh-EQy" kind="push" id="lyi-Dl-ZgJ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm PassWord" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="F3d-bh-z7O">
@@ -331,6 +330,7 @@
                         <outlet property="passWordTF" destination="yZ5-dC-HYJ" id="oKE-kO-xJN"/>
                         <outlet property="phoneNumTF" destination="xjY-X4-Qkl" id="DUf-pO-Zog"/>
                         <outlet property="verifyCodeTF" destination="zSP-Hp-LuE" id="lfG-qp-whi"/>
+                        <segue destination="FA2-Qh-EQy" kind="push" identifier="register2commit" id="2hU-HW-BTz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3n-0C-BgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,7 +464,7 @@
         <!--用户资料-->
         <scene sceneID="eRS-l2-cLZ">
             <objects>
-                <viewController id="FA2-Qh-EQy" sceneMemberID="viewController">
+                <viewController id="FA2-Qh-EQy" customClass="CommitInfoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mQh-0k-Zq4"/>
                         <viewControllerLayoutGuide type="bottom" id="EiB-G2-JRg"/>
@@ -476,17 +476,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Overlay" translatesAutoresizingMaskIntoConstraints="NO" id="hTA-VY-6d2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnU-tg-eK7">
-                                <rect key="frame" x="155" y="398" width="290" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HPa-ET-Ph5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Enjoy Friends" backgroundImage="Bg">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.066666666669999999" green="0.5450980392" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NickName" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-jj-aqQ">
                                 <rect key="frame" x="155" y="285" width="290" height="30"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -504,8 +493,12 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-ix-piY">
-                                <rect key="frame" x="250" y="131" width="100" height="100"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="guide_image03" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-ix-piY">
+                                <rect key="frame" x="250" y="140" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="5dG-AJ-Iec"/>
+                                    <constraint firstAttribute="width" constant="100" id="sNY-Ea-l4f"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habbit" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="eXG-zz-pOR">
                                 <rect key="frame" x="155" y="336" width="290" height="30"/>
@@ -523,26 +516,58 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fch-rQ-et3">
+                                <rect key="frame" x="155" y="395" width="121" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="nc8-Jg-DGr"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="男"/>
+                                    <segment title="女"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnU-tg-eK7">
+                                <rect key="frame" x="155" y="454" width="290" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1Zm-Fr-Fzw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Enjoy Friends" backgroundImage="Bg">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.066666666669999999" green="0.5450980392" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="commitClick:" destination="FA2-Qh-EQy" eventType="touchUpInside" id="JeI-ma-NqB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nnU-tg-eK7" firstAttribute="width" secondItem="eXG-zz-pOR" secondAttribute="width" id="4Ee-Vw-jdT"/>
                             <constraint firstItem="eXG-zz-pOR" firstAttribute="trailing" secondItem="WVR-jj-aqQ" secondAttribute="trailing" id="CAs-jR-rhN"/>
+                            <constraint firstItem="nnU-tg-eK7" firstAttribute="trailing" secondItem="eXG-zz-pOR" secondAttribute="trailing" id="E5b-yZ-IVI"/>
                             <constraint firstItem="FdB-ix-piY" firstAttribute="centerX" secondItem="WVR-jj-aqQ" secondAttribute="centerX" id="F8E-Kg-7oh"/>
                             <constraint firstItem="hTA-VY-6d2" firstAttribute="bottom" secondItem="EiB-G2-JRg" secondAttribute="top" id="G4r-fM-Qeh"/>
-                            <constraint firstItem="nnU-tg-eK7" firstAttribute="top" secondItem="eXG-zz-pOR" secondAttribute="bottom" constant="32" id="JQf-nm-Fo5"/>
+                            <constraint firstItem="Fch-rQ-et3" firstAttribute="top" secondItem="eXG-zz-pOR" secondAttribute="bottom" constant="29" id="GwE-Je-gQc"/>
                             <constraint firstItem="eXG-zz-pOR" firstAttribute="leading" secondItem="WVR-jj-aqQ" secondAttribute="leading" id="OWp-Wt-t9u"/>
                             <constraint firstItem="WVR-jj-aqQ" firstAttribute="centerY" secondItem="hTA-VY-6d2" secondAttribute="centerY" id="PDg-xg-2rK"/>
+                            <constraint firstItem="nnU-tg-eK7" firstAttribute="leading" secondItem="Fch-rQ-et3" secondAttribute="leading" id="SGt-ik-fUw"/>
                             <constraint firstItem="eXG-zz-pOR" firstAttribute="top" secondItem="WVR-jj-aqQ" secondAttribute="bottom" constant="21" id="aZX-XL-8em"/>
                             <constraint firstItem="FdB-ix-piY" firstAttribute="centerX" secondItem="hTA-VY-6d2" secondAttribute="centerX" id="iZD-uC-zLi"/>
-                            <constraint firstItem="nnU-tg-eK7" firstAttribute="leading" secondItem="eXG-zz-pOR" secondAttribute="leading" id="j4e-QI-AQ5"/>
                             <constraint firstItem="hTA-VY-6d2" firstAttribute="leading" secondItem="f4l-ST-hbM" secondAttribute="leading" id="oid-ll-1zO"/>
-                            <constraint firstItem="WVR-jj-aqQ" firstAttribute="top" secondItem="FdB-ix-piY" secondAttribute="bottom" constant="54" id="rCL-Fl-0XY"/>
+                            <constraint firstItem="nnU-tg-eK7" firstAttribute="top" secondItem="Fch-rQ-et3" secondAttribute="bottom" constant="31" id="pfB-Ct-7ow"/>
+                            <constraint firstItem="WVR-jj-aqQ" firstAttribute="top" secondItem="FdB-ix-piY" secondAttribute="bottom" constant="45" id="rCL-Fl-0XY"/>
+                            <constraint firstItem="Fch-rQ-et3" firstAttribute="leading" secondItem="eXG-zz-pOR" secondAttribute="leading" id="u7m-Rx-wf7"/>
                             <constraint firstItem="hTA-VY-6d2" firstAttribute="top" secondItem="f4l-ST-hbM" secondAttribute="top" id="vTe-OO-boS"/>
                             <constraint firstAttribute="trailing" secondItem="hTA-VY-6d2" secondAttribute="trailing" id="yN8-xY-t2y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="用户资料" id="jYh-QS-zyW"/>
+                    <connections>
+                        <outlet property="habbitTF" destination="eXG-zz-pOR" id="4Nj-Lb-ucc"/>
+                        <outlet property="headIV" destination="FdB-ix-piY" id="YJ6-5G-8ec"/>
+                        <outlet property="nickNameTF" destination="WVR-jj-aqQ" id="zeF-wf-n9x"/>
+                        <outlet property="sexSG" destination="Fch-rQ-et3" id="r9F-ab-qxW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8i-Vw-uVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -628,7 +653,7 @@
         <image name="Bg" width="325" height="55"/>
         <image name="Overlay" width="375" height="667"/>
         <image name="Plane" width="90" height="90"/>
-        <image name="avatar" width="100" height="100"/>
+        <image name="guide_image03" width="640" height="1136"/>
         <image name="love" width="29" height="23"/>
         <image name="msg" width="27" height="31"/>
         <image name="personal" width="24" height="23"/>

@@ -1,12 +1,38 @@
 PODS:
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection (= 2.4.1)
+    - AFNetworking/NSURLSession (= 2.4.1)
+    - AFNetworking/Reachability (= 2.4.1)
+    - AFNetworking/Security (= 2.4.1)
+    - AFNetworking/Serialization (= 2.4.1)
+    - AFNetworking/UIKit (= 2.4.1)
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - MJExtension (2.5.16)
   - MJRefresh (2.4.12)
   - RongCloudIMKit (2.3.4)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.4.1)
+  - MJExtension
   - MJRefresh
   - RongCloudIMKit
 
 SPEC CHECKSUMS:
+  AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
+  MJExtension: b8c1321a77d91bcc007b94d38cbf5383c95ea30e
   MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   RongCloudIMKit: f7fce38683b41e480dfdff7672248855ecf5aee9
 

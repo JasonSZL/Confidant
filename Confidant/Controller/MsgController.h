@@ -10,6 +10,7 @@
 #import "MsgTBCell.h"
 @interface MsgController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (nonatomic,retain) NSArray *msgList;
 
 @end

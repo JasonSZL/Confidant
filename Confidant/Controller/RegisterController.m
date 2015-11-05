@@ -8,6 +8,7 @@
 
 #import "RegisterController.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "User.h"
 @interface RegisterController ()
 
 @end
@@ -20,16 +21,7 @@
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(selectLeftAction:)];
-//    self.view.
-    
     self.navigationItem.leftBarButtonItem = backButton;
-    
-//    UIBarButtonSystemItem systemItemOut = [value integerValue];
-//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(selectLeftAction:)];
-//    self.navigationItem.leftBarButtonItem = leftButton;
-//    
-//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(selectRightAction:)];
-//    self.navigationItem.rightBarButtonItem = rightButton;
 }
 - (IBAction)getVerifyCodeClick:(id)sender {
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneNumTF.text
@@ -41,9 +33,6 @@
          if (!error)
          {
              NSLog(@"验证码发送成功");
-//             [self presentViewController:verify animated:YES completion:^{
-//                 ;
-//             }];
          }
          else
          {
@@ -58,14 +47,51 @@
      }];
 
 }
-
+-(BOOL)isAvalible:(NSString*)account password:(NSString*)password confirmPassword:(NSString*)confirmPassword{
+    NSString *errorTips = @"";
+    NSLog(@"account=%@",account);
+    NSLog(@"confirmPassword=%@",confirmPassword);
+    NSLog(@"password=%@",password);
+    NSLog(@"confirm length=%d",confirmPassword.length);
+    if([account isEqualToString:@""] || account.length!=11){
+        errorTips = @"账号长度不合法";
+        [self showAlertView:errorTips];
+        return FALSE;
+    }
+    if(password.length<6||password.length>20){
+        errorTips = @"密码长度不合法";
+        [self showAlertView:errorTips];
+        return FALSE;
+    }
+    if ([password isEqualToString: confirmPassword]) {
+        errorTips = @"两次密码不一致";
+        [self showAlertView:errorTips];
+        return FALSE;
+    }
+    return TRUE;
+}
+-(void)showAlertView:(NSString*)stringTips {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:stringTips message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alertView show];
+}
 - (IBAction)signUpClick:(id)sender {
-    [SMSSDK commitVerificationCode:self.verifyCodeTF.text phoneNumber:_phoneNumTF.text zone:@"+86" result:^(NSError *error) {
-        
-        if (!error) {
-            NSLog(@"验证成功了，叼毛兽");
-        }
-    }];
+//    [self performSegueWithIdentifier:@"register2commit" sender:self];
+    BOOL isRight = [self isAvalible:_phoneNumTF.text password:_passWordTF.text confirmPassword:_confirmPassWord.text];
+    if (isRight) {
+            [SMSSDK commitVerificationCode:self.verifyCodeTF.text phoneNumber:_phoneNumTF.text zone:@"+86" result:^(NSError *error) {
+                [self performSegueWithIdentifier:@"register2commit" sender:self];
+                User *user = [[User alloc]init];
+                [user setAccount:_phoneNumTF.text];
+                
+                
+            }];
+    }
+//    [SMSSDK commitVerificationCode:self.verifyCodeTF.text phoneNumber:_phoneNumTF.text zone:@"+86" result:^(NSError *error) {
+//        [self performSegueWithIdentifier:@"register2commit" sender:self];
+////        if (!error) {
+////            NSLog(@"验证成功了，叼毛兽");  
+////        }
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,11 +100,7 @@
 }
 -(void)selectLeftAction:(id)sender
 {
- [self dismissViewControllerAnimated:YES completion:nil];    
-//    [self.navigationController popViewControllerAnimated:YES];
-//    self.navigationController setHi
-//    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"你点击了导航栏左按钮" delegate:self  cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//    [alter show];
+ [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)selectRightAction:(id)sender
@@ -87,15 +109,5 @@
     [alter show];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
