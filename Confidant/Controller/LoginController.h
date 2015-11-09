@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@interface LoginController : UIViewController<UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *accountTF;
 
+
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @end

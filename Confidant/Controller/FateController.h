@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FateController : UIViewController
+@interface FateController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *recommondTBView;
 
 @end

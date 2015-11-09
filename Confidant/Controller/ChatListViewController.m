@@ -18,8 +18,8 @@
     [super viewDidLoad];
     [self login];
     [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION)]];
-//    //自定义导航左右按钮
-//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"单聊" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
+    //自定义导航左右按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"单聊" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemPressed:)];
 //    [rightButton setTintColor:[UIColor whiteColor]];
 //    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    backBtn.frame = CGRectMake(0, 6, 67, 23);

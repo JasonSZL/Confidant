@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MsgTBCell.h"
+//tab主页面
 @interface MsgController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

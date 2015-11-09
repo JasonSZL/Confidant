@@ -9,6 +9,8 @@
 #import "RegisterController.h"
 #import <SMS_SDK/SMSSDK.h>
 #import "User.h"
+#import "ModelUtil.h"
+
 @interface RegisterController ()
 
 @end
@@ -21,8 +23,12 @@
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(selectLeftAction:)];
+    
+    
+
     self.navigationItem.leftBarButtonItem = backButton;
 }
+
 - (IBAction)getVerifyCodeClick:(id)sender {
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneNumTF.text
                                    zone:@"+86"
@@ -63,7 +69,7 @@
         [self showAlertView:errorTips];
         return FALSE;
     }
-    if ([password isEqualToString: confirmPassword]) {
+    if (![password isEqualToString: confirmPassword]) {
         errorTips = @"两次密码不一致";
         [self showAlertView:errorTips];
         return FALSE;
@@ -78,20 +84,16 @@
 //    [self performSegueWithIdentifier:@"register2commit" sender:self];
     BOOL isRight = [self isAvalible:_phoneNumTF.text password:_passWordTF.text confirmPassword:_confirmPassWord.text];
     if (isRight) {
-            [SMSSDK commitVerificationCode:self.verifyCodeTF.text phoneNumber:_phoneNumTF.text zone:@"+86" result:^(NSError *error) {
+//            [SMSSDK commitVerificationCode:self.verifyCodeTF.text phoneNumber:_phoneNumTF.text zone:@"+86" result:^(NSError *error) {
                 [self performSegueWithIdentifier:@"register2commit" sender:self];
                 User *user = [[User alloc]init];
                 [user setAccount:_phoneNumTF.text];
+                [user setPassword:_passWordTF.text];
+                [[ModelUtl getInstance]setUser:user];
                 
                 
-            }];
+//            }];
     }
-//    [SMSSDK commitVerificationCode:self.verifyCodeTF.text phoneNumber:_phoneNumTF.text zone:@"+86" result:^(NSError *error) {
-//        [self performSegueWithIdentifier:@"register2commit" sender:self];
-////        if (!error) {
-////            NSLog(@"验证成功了，叼毛兽");  
-////        }
-//    }];
 }
 
 - (void)didReceiveMemoryWarning {

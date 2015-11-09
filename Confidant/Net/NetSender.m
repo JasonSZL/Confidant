@@ -9,81 +9,80 @@
 #import "NetSender.h"
 #import "NetDefine.h"
 #import "User.h"
-static NSString* const BaseURLString = @"http://120.25.244.11/WeLoveServer/";
+static NSString* const BaseURLString = @"http://localhost:8080/";
+
 @implementation NetSender
 -(void)initRequest{
 
 }
--(void)sendRegisterRequest:(NSString *)pwd nickname:(NSString *)nickname phoneNum:(NSString *)phoneNum smsCode:(NSString *)smsCode sex:(NSString *)sex channel:(NSString *)channel portrait:(NSString *)portrait;{
-    NSMutableArray *paramArr = [[NSMutableArray alloc]init];
+-(void)sendRegisterRequest:(NSString *)pwd userName:(NSString *)userName account:(NSString *)account sex:(NSString *)sex  headIcon:(UIImage *)headIcon latitude:(NSString *)latitude longtitude:(NSString*)longtitude{
+//    NSMutableArray *paramArr = [[NSMutableArray alloc]init];
+//    
+//    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+//    [dict setValue:pwd forKey:@"password"];
+//    [dict setValue:userName forKey:@"userName"];
+//    [dict setValue:headIcon forKey:@"headIcon"];
+//    [dict setValue:account forKey:@"account"];
+//    [dict setValue:sex forKey:@"sex"];
+//    NSString *paramString = [self getParamString:dict];
+//    [paramArr addObject:@"register?"];
+//    [paramArr addObject:paramString];
+//    NSString *url = [self getCompleteUrl :paramArr];
+//    
+//    NSLog(@"url=====%@",url);
+//    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"Success: %@", operation.responseString);
+//
+////        NSString*jsonString = @"111";
+//        int result = [self getResult:operation.responseString];
+//        User *user =  NULL;
+//        if (result==RESULT_SUCCESS) {
+//            NSString* dataStr = [self getData:operation.responseString];
+//            user = [User objectWithKeyValues:dataStr];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_SUCESS object:user userInfo:nil];
+//        }else{
+//           NSString *errorMsg = [self getErrorNo:operation.responseString];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_FAILED object:errorMsg userInfo:nil];
+//        }
+//
+//        
+// 
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Failure: %@", error);
+//        [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_FAILED object:error userInfo:nil];
+//    }];
+//    [operation start];
+//    
+//    
+
+//    BaseURLString a
     
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:pwd forKey:@"password"];
-    [dict setValue:nickname forKey:@"userName"];
-    [dict setValue:portrait forKey:@"headIcon"];
-    [dict setValue:phoneNum forKey:@"mobileNum"];
-    [dict setValue:sex forKey:@"sex"];
-    NSString *paramString = [self getParamString:dict];
-    [paramArr addObject:@"login"];
-    [paramArr addObject:paramString];
-    NSString *url = [self getCompleteUrl :paramArr];
-    
-    NSLog(@"url=====%@",url);
-    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success: %@", operation.responseString);
-        // 2.将JSON字符串转为User模型
-//        NSString*jsonString = @"111";
-        User *user = [User objectWithKeyValues:operation.responseString];
-        [[NSNotificationCenter defaultCenter] postNotificationName:CODE_SUCESS object:user userInfo:nil];
- 
+    NSData *data =UIImagePNGRepresentation(headIcon);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"password": pwd,@"userName":userName,@"account":account,@"sex":sex,@"latitude":latitude,@"longtitude":longtitude};
+    [manager POST:@"http://localhost:8080/register" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:@"fileUpload" fileName:@"fileUpload" mimeType:@"image/png"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                int result = [self getResult:operation.responseString];
+                User *user =  NULL;
+                if (result==RESULT_SUCCESS) {
+                    NSString* dataStr = [self getData:operation.responseString];
+                    user = [User objectWithKeyValues:dataStr];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_SUCESS object:user userInfo:nil];
+                }else{
+                   NSString *errorMsg = [self getErrorNo:operation.responseString];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_FAILED object:errorMsg userInfo:nil];
+                }
+        NSLog(@"Success: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure: %@", error);
-        [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_FAILED object:error userInfo:nil];
+        NSLog(@"Error: %@", error);
     }];
-    [operation start];
-    
-    
     
 };
-//发送验证码
--(void)sendVerifyRequest:(NSString *)verifyCode phoneNum:(NSString *)phoneNum zone:(NSString *)zone{
-    NSMutableArray *paramArr = [[NSMutableArray alloc]init];
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:phoneNum forKey:@"phone"];
-    [dict setValue:zone forKey:@"zone"];
-    [dict setValue:verifyCode forKey:@"code"];
-    [dict setValue:@"ios" forKey:@"device"];
-    NSString *paramString = [self getParamString:dict];
-    
-    
-    [paramArr addObject:@"captch/smsCode.do?"];
-    [paramArr addObject:paramString];
-    NSString *url = [self getCompleteUrl :paramArr];
-    
-    NSLog(@"url=====%@",url);
-    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Success: %@", operation.responseString);
-    
-            NSString *requestTmp = [NSString stringWithString:operation.responseString];
-            NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
-            //系统自带JSON解析
-            NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:CODE_SUCESS object:resultDic userInfo:nil];
-        NSLog(@"%@",resultDic);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Failure: %@", error);
-            
-             [[NSNotificationCenter defaultCenter] postNotificationName:CODE_FAILED object:error userInfo:nil];
-        }];
-        [operation start];
-}
+
 //手机号是否可以注册
 -(void)sendPhoneNumRequest:(NSString *)PhoneNum{
     NSMutableArray *paramArr = [[NSMutableArray alloc]init];
@@ -140,13 +139,13 @@ static NSString* const BaseURLString = @"http://120.25.244.11/WeLoveServer/";
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     [dict setValue:account forKey:@"account"];
-    [dict setValue:pwd forKey:@"pwd"];
+    [dict setValue:pwd forKey:@"password"];
 
 
     NSString *paramString = [self getParamString:dict];
     
     
-    [paramArr addObject:@"user/login.do?"];
+    [paramArr addObject:@"login?"];
     [paramArr addObject:paramString];
     NSString *url = [self getCompleteUrl :paramArr];
     
@@ -157,12 +156,16 @@ static NSString* const BaseURLString = @"http://120.25.244.11/WeLoveServer/";
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", operation.responseString);
         
-        NSString *requestTmp = [NSString stringWithString:operation.responseString];
-        NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
-        //系统自带JSON解析
-        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_SUCESS object:resultDic userInfo:nil];
-        NSLog(@"%@",resultDic);
+        int result = [self getResult:operation.responseString];
+        User *user =  NULL;
+        if (result==RESULT_SUCCESS) {
+            NSString* dataStr = [self getData:operation.responseString];
+            user = [User objectWithKeyValues:dataStr];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_SUCESS object:user userInfo:nil];
+        }else{
+            NSString *errorMsg = [self getErrorNo:operation.responseString];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_FAILED object:errorMsg userInfo:nil];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Failure: %@", error);
         
@@ -178,6 +181,31 @@ static NSString* const BaseURLString = @"http://120.25.244.11/WeLoveServer/";
     }
  return resultString;
 };
+static NetSender *defaultSender = nil;
 
-
++ (NetSender *)getInstance {
+    if (!defaultSender) defaultSender = [[self allocWithZone:NULL] init];
+    return defaultSender;
+}
+-(int)getResult:(NSString *)jsonString{
+    NSString *requestTmp = [NSString stringWithString:jsonString];
+    NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
+    //系统自带JSON解析
+    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
+    return [resultDic[@"result"] integerValue];
+}
+-(NSString *)getData:(NSString *)jsonString{
+    NSString *requestTmp = [NSString stringWithString:jsonString];
+    NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
+    //系统自带JSON解析
+    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
+    return resultDic[@"data"] ;
+}
+-(NSString *)getErrorNo:(NSString *)jsonString{
+    NSString *requestTmp = [NSString stringWithString:jsonString];
+    NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
+    //系统自带JSON解析
+    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
+    return resultDic[@"errno"] ;
+}
 @end

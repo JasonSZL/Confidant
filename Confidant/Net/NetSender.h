@@ -10,11 +10,11 @@
 #import <AFNetworking.h>
 @interface NetSender : NSObject
 @property  AFHTTPRequestOperation *request;
-
++ (NetSender *)getInstance ;
 -(void)sendVerifyRequest:(NSString *)verifyCode phoneNum:(NSString *)phoneNum zone:(NSString *)zone;
 -(void)sendPhoneNumRequest:(NSString *)PhoneNum;
 -(NSString *)getParamString:(NSMutableDictionary *)params;
 -(NSString *)getCompleteUrl:(NSMutableArray *)params;
--(void)sendRegisterRequest:(NSString *)pwd nickname:(NSString *)nickname phoneNum:(NSString *)phoneNum smsCode:(NSString *)smsCode sex:(NSString *)sex channel:(NSString *)channel portrait:(NSString *)portrait;
+-(void)sendRegisterRequest:(NSString *)pwd userName:(NSString *)userName account:(NSString *)account sex:(NSString *)sex  headIcon:(UIImage *)headIcon;
 -(void)sendLoginRequest:(NSString *)account pwd:(NSString *)pwd;
 @end

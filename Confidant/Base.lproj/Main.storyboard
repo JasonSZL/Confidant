@@ -92,7 +92,7 @@
                                     <color key="titleShadowColor" red="0.066666666669999999" green="0.5450980392" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FMb-8H-Tgd" kind="show" id="hTY-ay-k8C"/>
+                                    <action selector="signUpClick:" destination="Fzx-vL-rgv" eventType="touchUpInside" id="ZzY-SC-0vm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcu-Ss-GSm">
@@ -155,7 +155,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="userNameTF" destination="Qxd-Xr-Qb2" id="OBH-MO-IHH"/>
+                        <outlet property="accountTF" destination="Qxd-Xr-Qb2" id="BLB-gm-qaW"/>
+                        <outlet property="passwordTF" destination="BrN-Mp-cV8" id="lyD-5m-6hd"/>
+                        <segue destination="FMb-8H-Tgd" kind="show" identifier="login2maintab" id="ocv-BW-a4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsB-aJ-qpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,9 +386,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-gq-5OU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-gq-5OU">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -398,10 +401,33 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="随缘" id="Tu2-o3-HrF"/>
+                    <connections>
+                        <outlet property="recommondTBView" destination="Zo1-gq-5OU" id="uI6-EN-eDJ"/>
+                        <segue destination="gVa-wQ-dxP" kind="push" identifier="fate2showuser" id="c1d-oB-gTw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbm-eJ-oMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3248" y="-1271"/>
+        </scene>
+        <!--冻手冻脚-->
+        <scene sceneID="hb1-oA-Hh9">
+            <objects>
+                <viewController id="gVa-wQ-dxP" customClass="ShowUserDataController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dzq-xh-tSj"/>
+                        <viewControllerLayoutGuide type="bottom" id="o8q-ps-eUs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qR5-Cl-pLV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="冻手冻脚" prompt="那你呢" id="hzu-z6-GIN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugo-HR-VQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3920" y="-1271"/>
         </scene>
         <!--排行榜-->
         <scene sceneID="lSN-oZ-8SM">
@@ -567,11 +593,12 @@
                         <outlet property="headIV" destination="FdB-ix-piY" id="YJ6-5G-8ec"/>
                         <outlet property="nickNameTF" destination="WVR-jj-aqQ" id="zeF-wf-n9x"/>
                         <outlet property="sexSG" destination="Fch-rQ-et3" id="r9F-ab-qxW"/>
+                        <segue destination="FMb-8H-Tgd" kind="show" identifier="register2maintab" id="ND1-J6-YKE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8i-Vw-uVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3248" y="642"/>
+            <point key="canvasLocation" x="3224" y="635"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z5n-fx-pBp">
@@ -659,4 +686,7 @@
         <image name="personal" width="24" height="23"/>
         <image name="sort" width="18" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ocv-BW-a4H"/>
+    </inferredMetricsTieBreakers>
 </document>

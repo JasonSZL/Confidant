@@ -7,10 +7,45 @@
 //
 
 #import "CommitInfoController.h"
-#define ORIGINAL_MAX_WIDTH 640.0f
+#import "ModelUtil.h"
+#import "NetSender.h"
+#import "GMDCircleLoader.h"
+#import "NetDefine.h"
+#import "User.h"
+#import "Util.h"
 @implementation CommitInfoController
 - (IBAction)commitClick:(id)sender {
- 
+    User *user = [ModelUtl getInstance].user ;
+    NSString *_headStr = @"";
+    if (!_headImg) {
+//        _headStr = [[Util getInstance] getStringFromImg:_headImg];
+        _headImg = [UIImage imageNamed:@"fujin.png"];
+    }
+    [[NetSender getInstance]sendRegisterRequest:user.password userName:_nickNameTF.text account:user.account sex:@"1" headIcon:_headImg];
+    [GMDCircleLoader setOnView:self.view withTitle:@"请稍后..." animated:YES];
+
+
+}
+//注册成功的回调
+- (void) getAccountRegisterSucess: (NSNotification*) aNotification
+{
+
+    
+    User *user = [aNotification object];
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    
+}
+//注册失败的回调
+- (void) getAccountRegisterFailed: (NSNotification*) aNotification
+{
+    NSString *errorMsg = [aNotification object];
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+    NSLog(@"getPhoneRegisterResult");
+    [self showAlertView:errorMsg];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,12 +58,17 @@
     _headIV.layer.borderWidth = 5;
     _headIV.layer.borderColor = [[UIColor whiteColor] CGColor];
     _headIV.layer.contents = (id)[[UIImage imageNamed:@"backgroundImage.png"] CGImage];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAccountRegisterSucess:) name:REGISTER_SUCESS object:nil];
+    //添加失败监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAccountRegisterFailed:) name:REGISTER_FAILED object:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:^() {
         UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        _headImg = portraitImg;
         _headIV.image =[ self thumbnailWithImageWithoutScale:portraitImg size:CGSizeMake(140, 140)];
     }];
 //    [picker dismissViewControllerAnimated:YES ];
@@ -130,6 +170,9 @@
     }
     return newimage;
 }
-
+-(void)showAlertView:(NSString*)stringTips {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:stringTips message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alertView show];
+}
 
 @end

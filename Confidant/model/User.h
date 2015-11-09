@@ -11,15 +11,15 @@
 #import <Foundation/Foundation.h>
 #import "MJExtension.h"
 @interface User:NSObject
-@property(nonatomic,strong) NSString *userName;
-@property(nonatomic,strong) NSString *password;
-@property(nonatomic,strong) NSString *birthday;
-@property(nonatomic,strong) NSString *account;
-@property(nonatomic,strong) NSString *habbit;
-@property(nonatomic,strong) NSString *userId;
-@property int sex;
-@property float longtitude;
-@property float latitude;
+@property(copy, nonatomic) NSString *userName;
+@property(copy, nonatomic) NSString *password;
+@property(copy, nonatomic) NSString *birthday;
+@property(copy, nonatomic) NSString *account;
+@property(copy, nonatomic) NSString *habbit;
+@property(copy, nonatomic) NSString *userId;
+@property(assign, nonatomic) int sex;
+@property(assign, nonatomic)float longtitude;
+@property(assign, nonatomic) float latitude;
 
 @end
 

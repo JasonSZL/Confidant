@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		19AED6C51BEB8CF8004BB2E3 /* NetSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AED6C41BEB8CF8004BB2E3 /* NetSender.m */; };
-		19AED6C81BEB93D3004BB2E3 /* modelUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AED6C71BEB93D3004BB2E3 /* modelUtil.m */; };
+		19AED6C81BEB93D3004BB2E3 /* ModelUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AED6C71BEB93D3004BB2E3 /* ModelUtil.m */; };
 		19DDA40E1BE24F7200DD7661 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDA40D1BE24F7200DD7661 /* RegisterController.m */; };
+		19DDDAB71BEF7C1B000319DF /* RecommondTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDDAB61BEF7C1B000319DF /* RecommondTBCell.m */; };
+		19DDDAB91BEF7CB5000319DF /* RecommondTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DDDAB81BEF7CB5000319DF /* RecommondTBCell.xib */; };
+		19DDDABD1BEFA464000319DF /* UIIamge+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDDABC1BEFA464000319DF /* UIIamge+Circle.m */; };
+		19DDDAC01BEFA48C000319DF /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDDABF1BEFA48C000319DF /* UINavigationBar+Awesome.m */; };
+		19DDDAC31BEFA546000319DF /* ShowUserDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DDDAC21BEFA546000319DF /* ShowUserDataController.m */; };
+		19E02C271BEDE85E0042C623 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E02C261BEDE85E0042C623 /* GMDCircleLoader.m */; };
+		19E02C2B1BEDFE270042C623 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E02C2A1BEDFE270042C623 /* Util.m */; };
 		19E0D68D1BE111CB001897F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0D68C1BE111CB001897F3 /* main.m */; };
 		19E0D6901BE111CB001897F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0D68F1BE111CB001897F3 /* AppDelegate.m */; };
 		19E0D6961BE111CB001897F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E0D6941BE111CB001897F3 /* Main.storyboard */; };
@@ -50,7 +57,6 @@
 		19E7ED5E1BE91A95008678F1 /* YUBottomPopSelctModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED511BE91A95008678F1 /* YUBottomPopSelctModel.m */; };
 		19E7ED5F1BE91A95008678F1 /* YUBottomPopSelctView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED531BE91A95008678F1 /* YUBottomPopSelctView.m */; };
 		19E7ED601BE91A95008678F1 /* YUDarkGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED551BE91A95008678F1 /* YUDarkGlassView.m */; };
-		19E7ED631BEA2FB2008678F1 /* UIIamge+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED621BEA2FB2008678F1 /* UIIamge+Circle.m */; };
 		19E7ED691BEA4186008678F1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E7ED681BEA4186008678F1 /* User.m */; };
 		4FC0E038636E26A1B3B36AD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9FEE2547B0179FDFE862B8 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -76,10 +82,23 @@
 		19AED6C21BEB8CF8004BB2E3 /* NetDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetDefine.h; sourceTree = "<group>"; };
 		19AED6C31BEB8CF8004BB2E3 /* NetSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetSender.h; sourceTree = "<group>"; };
 		19AED6C41BEB8CF8004BB2E3 /* NetSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetSender.m; sourceTree = "<group>"; };
-		19AED6C61BEB93D3004BB2E3 /* modelUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modelUtil.h; sourceTree = "<group>"; };
-		19AED6C71BEB93D3004BB2E3 /* modelUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modelUtil.m; sourceTree = "<group>"; };
+		19AED6C61BEB93D3004BB2E3 /* ModelUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUtil.h; sourceTree = "<group>"; };
+		19AED6C71BEB93D3004BB2E3 /* ModelUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUtil.m; sourceTree = "<group>"; };
 		19DDA40C1BE24F7200DD7661 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		19DDA40D1BE24F7200DD7661 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		19DDDAB51BEF7C1B000319DF /* RecommondTBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommondTBCell.h; sourceTree = "<group>"; };
+		19DDDAB61BEF7C1B000319DF /* RecommondTBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommondTBCell.m; sourceTree = "<group>"; };
+		19DDDAB81BEF7CB5000319DF /* RecommondTBCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecommondTBCell.xib; path = ../model/RecommondTBCell.xib; sourceTree = "<group>"; };
+		19DDDABB1BEFA464000319DF /* UIIamge+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIIamge+Circle.h"; sourceTree = "<group>"; };
+		19DDDABC1BEFA464000319DF /* UIIamge+Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIIamge+Circle.m"; sourceTree = "<group>"; };
+		19DDDABE1BEFA48C000319DF /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		19DDDABF1BEFA48C000319DF /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		19DDDAC11BEFA546000319DF /* ShowUserDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowUserDataController.h; sourceTree = "<group>"; };
+		19DDDAC21BEFA546000319DF /* ShowUserDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowUserDataController.m; sourceTree = "<group>"; };
+		19E02C251BEDE85E0042C623 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDCircleLoader.h; sourceTree = "<group>"; };
+		19E02C261BEDE85E0042C623 /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDCircleLoader.m; sourceTree = "<group>"; };
+		19E02C291BEDFE270042C623 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		19E02C2A1BEDFE270042C623 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		19E0D6881BE111CA001897F3 /* Confidant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Confidant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E0D68C1BE111CB001897F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19E0D68E1BE111CB001897F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -148,8 +167,6 @@
 		19E7ED531BE91A95008678F1 /* YUBottomPopSelctView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBottomPopSelctView.m; sourceTree = "<group>"; };
 		19E7ED541BE91A95008678F1 /* YUDarkGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDarkGlassView.h; sourceTree = "<group>"; };
 		19E7ED551BE91A95008678F1 /* YUDarkGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDarkGlassView.m; sourceTree = "<group>"; };
-		19E7ED611BEA2FB2008678F1 /* UIIamge+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIIamge+Circle.h"; sourceTree = "<group>"; };
-		19E7ED621BEA2FB2008678F1 /* UIIamge+Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIIamge+Circle.m"; sourceTree = "<group>"; };
 		19E7ED681BEA4186008678F1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		19E7ED6A1BEA41AC008678F1 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		947AC7FE85E74F57B83B6081 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,9 +217,39 @@
 			path = Net;
 			sourceTree = "<group>";
 		};
+		19DDDABA1BEFA41B000319DF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				19DDDABB1BEFA464000319DF /* UIIamge+Circle.h */,
+				19DDDABE1BEFA48C000319DF /* UINavigationBar+Awesome.h */,
+				19DDDABF1BEFA48C000319DF /* UINavigationBar+Awesome.m */,
+				19DDDABC1BEFA464000319DF /* UIIamge+Circle.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		19E02C241BEDE85E0042C623 /* GMDCircleLoader */ = {
+			isa = PBXGroup;
+			children = (
+				19E02C251BEDE85E0042C623 /* GMDCircleLoader.h */,
+				19E02C261BEDE85E0042C623 /* GMDCircleLoader.m */,
+			);
+			path = GMDCircleLoader;
+			sourceTree = "<group>";
+		};
+		19E02C281BEDFE0D0042C623 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				19E02C291BEDFE270042C623 /* Util.h */,
+				19E02C2A1BEDFE270042C623 /* Util.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		19E0D67F1BE111CA001897F3 = {
 			isa = PBXGroup;
 			children = (
+				19E02C241BEDE85E0042C623 /* GMDCircleLoader */,
 				19E7ED3E1BE91A95008678F1 /* YUScreentPoper */,
 				19E0D6C51BE11305001897F3 /* MYBlurIntroductionView */,
 				19E0D68A1BE111CB001897F3 /* Confidant */,
@@ -227,6 +274,8 @@
 		19E0D68A1BE111CB001897F3 /* Confidant */ = {
 			isa = PBXGroup;
 			children = (
+				19DDDABA1BEFA41B000319DF /* Category */,
+				19E02C281BEDFE0D0042C623 /* Util */,
 				19E7ED641BEA410D008678F1 /* model */,
 				19E177FF1BE5275400BB5803 /* CustomView */,
 				19E0D6C11BE11265001897F3 /* Controller */,
@@ -288,6 +337,8 @@
 				19E169891BE4CFDE00947DDE /* MsgController.m */,
 				19E7ED141BE8EF6F008678F1 /* CommitInfoController.h */,
 				19E7ED151BE8EF6F008678F1 /* CommitInfoController.m */,
+				19DDDAC11BEFA546000319DF /* ShowUserDataController.h */,
+				19DDDAC21BEFA546000319DF /* ShowUserDataController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,11 +359,12 @@
 		19E177FF1BE5275400BB5803 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				19E7ED611BEA2FB2008678F1 /* UIIamge+Circle.h */,
-				19E7ED621BEA2FB2008678F1 /* UIIamge+Circle.m */,
+				19DDDAB81BEF7CB5000319DF /* RecommondTBCell.xib */,
 				19E178001BE5275400BB5803 /* MsgTBCell.h */,
 				19E178011BE5275400BB5803 /* MsgTBCell.m */,
 				19E178021BE5275400BB5803 /* MsgTBCell.xib */,
+				19DDDAB51BEF7C1B000319DF /* RecommondTBCell.h */,
+				19DDDAB61BEF7C1B000319DF /* RecommondTBCell.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -382,8 +434,8 @@
 			children = (
 				19E7ED681BEA4186008678F1 /* User.m */,
 				19E7ED6A1BEA41AC008678F1 /* User.h */,
-				19AED6C61BEB93D3004BB2E3 /* modelUtil.h */,
-				19AED6C71BEB93D3004BB2E3 /* modelUtil.m */,
+				19AED6C61BEB93D3004BB2E3 /* ModelUtil.h */,
+				19AED6C71BEB93D3004BB2E3 /* ModelUtil.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -526,6 +578,7 @@
 				19E178041BE5275400BB5803 /* MsgTBCell.xib in Resources */,
 				19E3647A1BE6551C00B28498 /* SMS_SDKLocalizable.strings in Resources */,
 				19E0D69E1BE111CB001897F3 /* LaunchScreen.storyboard in Resources */,
+				19DDDAB91BEF7CB5000319DF /* RecommondTBCell.xib in Resources */,
 				19E7ED561BE91A95008678F1 /* FontAwesome.ttf in Resources */,
 				19E0D6D01BE11564001897F3 /* SplashItem.xib in Resources */,
 				19E0D69B1BE111CB001897F3 /* Assets.xcassets in Resources */,
@@ -590,9 +643,12 @@
 			files = (
 				19E7ED691BEA4186008678F1 /* User.m in Sources */,
 				19E1698A1BE4CFDE00947DDE /* MsgController.m in Sources */,
+				19DDDABD1BEFA464000319DF /* UIIamge+Circle.m in Sources */,
 				19E7ED601BE91A95008678F1 /* YUDarkGlassView.m in Sources */,
 				19E7ED5A1BE91A95008678F1 /* UIColor+YUColor.m in Sources */,
 				19E0D6C41BE11265001897F3 /* SplashController.m in Sources */,
+				19E02C2B1BEDFE270042C623 /* Util.m in Sources */,
+				19E02C271BEDE85E0042C623 /* GMDCircleLoader.m in Sources */,
 				19E1696D1BE465E100947DDE /* FateController.m in Sources */,
 				19AED6C51BEB8CF8004BB2E3 /* NetSender.m in Sources */,
 				19E178031BE5275400BB5803 /* MsgTBCell.m in Sources */,
@@ -601,17 +657,19 @@
 				19E7ED591BE91A95008678F1 /* YUDIVView.m in Sources */,
 				19E0D6D31BE1183B001897F3 /* LoginController.m in Sources */,
 				19E7ED5F1BE91A95008678F1 /* YUBottomPopSelctView.m in Sources */,
+				19DDDAB71BEF7C1B000319DF /* RecommondTBCell.m in Sources */,
 				19E0D6CD1BE11305001897F3 /* MYBlurIntroductionView.m in Sources */,
 				19E7ED5E1BE91A95008678F1 /* YUBottomPopSelctModel.m in Sources */,
+				19DDDAC01BEFA48C000319DF /* UINavigationBar+Awesome.m in Sources */,
 				19E7ED5B1BE91A95008678F1 /* UIView+YUStyle.m in Sources */,
+				19DDDAC31BEFA546000319DF /* ShowUserDataController.m in Sources */,
 				19E7ED5C1BE91A95008678F1 /* UIWindow+YUBottomPoper.m in Sources */,
 				19E0D6991BE111CB001897F3 /* Confidant.xcdatamodeld in Sources */,
 				19E0D6901BE111CB001897F3 /* AppDelegate.m in Sources */,
-				19AED6C81BEB93D3004BB2E3 /* modelUtil.m in Sources */,
+				19AED6C81BEB93D3004BB2E3 /* ModelUtil.m in Sources */,
 				19DDA40E1BE24F7200DD7661 /* RegisterController.m in Sources */,
 				19E0D6CE1BE11305001897F3 /* MYIntroductionPanel.m in Sources */,
 				19E7ED5D1BE91A95008678F1 /* yConst.m in Sources */,
-				19E7ED631BEA2FB2008678F1 /* UIIamge+Circle.m in Sources */,
 				19E7ED571BE91A95008678F1 /* NSString+FontAwesome.m in Sources */,
 				19E0D68D1BE111CB001897F3 /* main.m in Sources */,
 				19E0D6CC1BE11305001897F3 /* AMBlurView.m in Sources */,

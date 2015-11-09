@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
-@interface modelUtl : NSObject
-@property(nonatomic,strong) User *user;
+
+@interface ModelUtl : NSObject
++(instancetype)getInstance;
+@property(nonatomic,strong)User *user;
 @end
