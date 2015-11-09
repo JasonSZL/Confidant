@@ -15,3 +15,5 @@ static NSString* const REGISTER_SUCESS = @"registerSucess";//注册成功
 static NSString* const REGISTER_FAILED = @"registerFailed";//注册失败
 static NSString* const LOGIN_SUCESS = @"loginSucess";//登陆成功
 static NSString* const LOGIN_FAILED = @"loginFailed";//登陆失败
+static NSString* const RECOMMOND_SUCCESS = @"recommondSuccess";//推荐成功
+static NSString* const RECOMMOND_FAILED = @"recommondFailed";//推荐失败

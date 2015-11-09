@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RecommondTBCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *headIV;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLB;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 
 @end

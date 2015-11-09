@@ -17,6 +17,7 @@
 @property(copy, nonatomic) NSString *account;
 @property(copy, nonatomic) NSString *habbit;
 @property(copy, nonatomic) NSString *userId;
+@property(copy,nonatomic)NSString *headIcon;
 @property(assign, nonatomic) int sex;
 @property(assign, nonatomic)float longtitude;
 @property(assign, nonatomic) float latitude;

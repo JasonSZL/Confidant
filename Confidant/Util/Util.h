@@ -12,4 +12,6 @@
 -(NSString *)getStringFromImg:(UIImage*)img;
 -(UIImage *)getImgFromString:(NSString *)imgStr;
 +(instancetype)getInstance;
+-(void)showAlertView:(NSString*)stringTips parent:(UIViewController*)parent;
+-(long)getSystemTime;
 @end

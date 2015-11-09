@@ -10,6 +10,11 @@
 #import "MJRefresh.h"
 #import "User.h"
 #import "RecommondTBCell.h"
+#import "GMDCircleLoader.h"
+#import "Util.h"
+#import "NetSender.h"
+#import "ModelUtil.h"
+#import "NetDefine.h"
 @interface FateController ()
 
 @end
@@ -20,29 +25,53 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-//    UIBarButtonItem *searchButton = UIButton alloc
-    // Dispose of any resources that can be recreated.
-//    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search.png"]
-//                                                                   style:UIBarButtonSystemItemSearch
-//                                                                  target:self
-//                                                                  action:@selector(selectRightAction:)];
-    //    self.view.
-    
-//    self.navigationItem.leftBarButtonItem = searchButton;
+
 }
 -(void)selectRightAction:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    //    [self.navigationController popViewControllerAnimated:YES];
-    //    self.navigationController setHi
-    //    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"你点击了导航栏左按钮" delegate:self  cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    //    [alter show];
+
+    
+}
+//成功的回调
+- (void) getRecommondSucess: (NSNotification*) aNotification
+{
+
+    
+//    User *user = [aNotification object];
+    _recommondList = [ModelUtl getInstance].recommondList;
+    
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+
+    self.recommondTBView.dataSource = self;
+    [self.recommondTBView reloadData];
+    
+}
+//失败的回调
+- (void) getRecommondFailed: (NSNotification*) aNotification
+{
+    NSString *errorMsg = [aNotification object];
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+    NSLog(@"getPhoneRegisterResult");
+    [[Util getInstance] showAlertView:errorMsg parent:self];
+    
+
     
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getRecommondSucess:) name:RECOMMOND_SUCCESS object:nil];
+    //添加失败监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getRecommondFailed:) name:RECOMMOND_FAILED object:nil];
       self.automaticallyAdjustsScrollViewInsets =NO;
+    _recommondList = [[NSMutableArray alloc]init];
+    int sex = 0;
+    if ([ModelUtl getInstance].user.sex==0) {
+        sex = 1;
+    }
+    [[NetSender getInstance]sendRecommondRequest:sex time:[[Util getInstance]getSystemTime] pageNum:1];
+    
     // 1.注册cell
 //    [self.recommondTBView registerClass:[RecommondTBCell class] forCellReuseIdentifier:@"cell"];
     
@@ -97,87 +126,58 @@
 //    [self.recommondTBView.footer beginRefreshing];
     self.recommondTBView.delegate = self;
     self.recommondTBView.dataSource = self;
-    
-//    // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
-//    [self.recommondTBView addHeaderWithTarget:self action:@selector(headerRereshing)];
-////#warning 自动刷新(一进入程序就下拉刷新)
-//    [self.recommondTBView headerBeginRefreshing];
-//    
-//    // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
-//    [self.recommondTBView addFooterWithTarget:self action:@selector(footerRereshing)];
-//    
-//    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
-//    self.recommondTBView.headerPullToRefreshText = @"下拉可以刷新了";
-//    self.recommondTBView.headerReleaseToRefreshText = @"松开马上刷新了";
-//    self.recommondTBView.headerRefreshingText = @"MJ哥正在帮你刷新中,不客气";
-//    
-//    self.recommondTBView.footerPullToRefreshText = @"上拉可以加载更多数据了";
-//    self.recommondTBView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
-//    self.recommondTBView.footerRefreshingText = @"MJ哥正在帮你加载中,不客气";
+
 }
 
 #pragma mark 开始进入刷新状态
 - (void)loadMoreData
 {
-//    // 1.添加假数据
-//    for (int i = 0; i<5; i++) {
-//        [self.fakeData insertObject:MJRandomData atIndex:0];
-//    }
-//    
-//    // 2.2秒后刷新表格UI
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        // 刷新表格
-//        [self.tableView reloadData];
-//        
-//        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-//        [self.tableView headerEndRefreshing];
-//    });
+
 }
 
 - (void)footerRereshing
 {
-//    // 1.添加假数据
-//    for (int i = 0; i<5; i++) {
-//        [self.fakeData addObject:MJRandomData];
-//    }
-//    
-//    // 2.2秒后刷新表格UI
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        // 刷新表格
-//        [self.tableView reloadData];
-//        
-//        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-//        [self.tableView footerEndRefreshing];
-//    });
+
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return _recommondList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    RecommondTBCell a
-   RecommondTBCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"RecommondTBCell" owner:self options:nil] lastObject];
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MJTableViewCellIdentifier forIndexPath:indexPath];
-//    
-//    cell.textLabel.text = self.fakeData[indexPath.row];
-//    return cell;
+    
+    
+    RecommondTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommondTBCell"];
+    if (cell == nil) {
+        // Load the top-level objects from the custom cell XIB.
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"RecommondTBCell" owner:self options:nil];
+        // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+        cell = [topLevelObjects objectAtIndex:0];
+    }
+    NSUInteger lastIndex = [indexPath indexAtPosition:[indexPath length] - 1]; // Gets you the '2' in [0, 2]
+    User *user = [_recommondList objectAtIndex:lastIndex];
+    cell.userNameLB.text = user.userName;
+//    cell.headIV.image = [UIImage imageNamed:user.headIcon];
     return cell;
+//    
+//   RecommondTBCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"RecommondTBCell" owner:self options:nil] lastObject];
+//
+//    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSUInteger lastIndex = [indexPath indexAtPosition:[indexPath length] - 1]; // Gets you the '2' in [0, 2]
+    User *user = [_recommondList objectAtIndex:lastIndex];
+    [ModelUtl getInstance].fateUser = user;
     [self performSegueWithIdentifier:@"fate2showuser" sender:self];
-    
-//    NSLog(@"%d",);
-//    MJTestViewController *test = [[MJTestViewController alloc] init];
-//    [self.navigationController pushViewController:test animated:YES];
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//     RecommondTBCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"RecommondTBCell" owner:self options:nil]
+
     return 85;
 }
 

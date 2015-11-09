@@ -9,56 +9,60 @@
 #import "NetSender.h"
 #import "NetDefine.h"
 #import "User.h"
+#import "ModelUtil.h"
 static NSString* const BaseURLString = @"http://localhost:8080/";
 
 @implementation NetSender
 -(void)initRequest{
 
 }
--(void)sendRegisterRequest:(NSString *)pwd userName:(NSString *)userName account:(NSString *)account sex:(NSString *)sex  headIcon:(UIImage *)headIcon latitude:(NSString *)latitude longtitude:(NSString*)longtitude{
-//    NSMutableArray *paramArr = [[NSMutableArray alloc]init];
-//    
-//    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-//    [dict setValue:pwd forKey:@"password"];
-//    [dict setValue:userName forKey:@"userName"];
-//    [dict setValue:headIcon forKey:@"headIcon"];
-//    [dict setValue:account forKey:@"account"];
-//    [dict setValue:sex forKey:@"sex"];
-//    NSString *paramString = [self getParamString:dict];
-//    [paramArr addObject:@"register?"];
-//    [paramArr addObject:paramString];
-//    NSString *url = [self getCompleteUrl :paramArr];
-//    
-//    NSLog(@"url=====%@",url);
-//    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Success: %@", operation.responseString);
-//
-////        NSString*jsonString = @"111";
-//        int result = [self getResult:operation.responseString];
-//        User *user =  NULL;
-//        if (result==RESULT_SUCCESS) {
-//            NSString* dataStr = [self getData:operation.responseString];
+-(void)sendRecommondRequest:(int)sex time:(long)time pageNum:(int)pageNum{
+    NSMutableArray *paramArr = [[NSMutableArray alloc]init];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    NSString *sexStr = [ NSString stringWithFormat:@"%d",sex];
+    NSString *timeStr = [NSString stringWithFormat:@"%ld",time];
+    NSString *pageNumStr = [NSString stringWithFormat:@"%d",pageNum];
+    [dict setValue:sexStr forKey:@"sex"];
+    [dict setValue:timeStr forKey:@"time"];
+    [dict setValue:pageNumStr forKey:@"pageNum"];
+    
+    NSString *paramString = [self getParamString:dict];
+    
+    
+    [paramArr addObject:@"recommond?"];
+    [paramArr addObject:paramString];
+    NSString *url = [self getCompleteUrl :paramArr];
+    NSLog(@"url=====%@",url);
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", operation.responseString);
+        
+        int result = [self getResult:operation.responseString];
+        User *user =  NULL;
+        if (result==RESULT_SUCCESS) {
+            NSString* dataStr = [self getData:operation.responseString];
+            
 //            user = [User objectWithKeyValues:dataStr];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_SUCESS object:user userInfo:nil];
-//        }else{
-//           NSString *errorMsg = [self getErrorNo:operation.responseString];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_FAILED object:errorMsg userInfo:nil];
-//        }
-//
-//        
-// 
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Failure: %@", error);
-//        [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_FAILED object:error userInfo:nil];
-//    }];
-//    [operation start];
-//    
-//    
+           [ModelUtl getInstance].recommondList = [User objectArrayWithKeyValuesArray:dataStr];
+//            [ModelUtl getInstance].recommondList.objectClassInArray
+            [[NSNotificationCenter defaultCenter] postNotificationName:RECOMMOND_SUCCESS object:nil userInfo:nil];
+        }else{
+            NSString *errorMsg = [self getErrorNo:operation.responseString];
+            [[NSNotificationCenter defaultCenter] postNotificationName:RECOMMOND_FAILED object:errorMsg userInfo:nil];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure: %@", error);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_FAILED object:error userInfo:nil];
+    }];
+    [operation start];
+    
+};
+-(void)sendRegisterRequest:(NSString *)pwd userName:(NSString *)userName account:(NSString *)account sex:(NSString *)sex  headIcon:(UIImage *)headIcon latitude:(NSString *)latitude longtitude:(NSString*)longtitude{
 
-//    BaseURLString a
     
     NSData *data =UIImagePNGRepresentation(headIcon);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -83,36 +87,7 @@ static NSString* const BaseURLString = @"http://localhost:8080/";
     
 };
 
-//手机号是否可以注册
--(void)sendPhoneNumRequest:(NSString *)PhoneNum{
-    NSMutableArray *paramArr = [[NSMutableArray alloc]init];
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:PhoneNum forKey:@"phone"];
-    NSString *paramString = [self getParamString:dict];
-    [paramArr addObject:@"user/checkIsRegister.do?"];
-    [paramArr addObject:paramString];
-    NSString *url = [self getCompleteUrl :paramArr];
-    
-    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success: %@", operation.responseString);
-        
-        NSString *requestTmp = [NSString stringWithString:operation.responseString];
-        NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
-        //系统自带JSON解析
-        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
-              [[NSNotificationCenter defaultCenter] postNotificationName:PHONE_SUCCESS object:resultDic userInfo:nil];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure: %@", error);
-        [[NSNotificationCenter defaultCenter] postNotificationName:PHONE_FAILED object:error userInfo:nil];
-        
-    }];
-    [operation start];
-};
+
 //根据map来获取字符串参数
 -(NSString *)getParamString:(NSMutableDictionary *)params{
     NSString *resultString = [[NSString alloc]init];

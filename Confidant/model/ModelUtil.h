@@ -12,4 +12,6 @@
 @interface ModelUtl : NSObject
 +(instancetype)getInstance;
 @property(nonatomic,strong)User *user;
+@property(nonatomic,retain)NSMutableArray<User *> *recommondList;
+@property(nonatomic,retain)User *fateUser;
 @end

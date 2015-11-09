@@ -73,6 +73,11 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="headIV" destination="A8p-rH-vRU" id="OHM-aU-xgJ"/>
+                <outlet property="timeLabel" destination="Ks8-vc-YOg" id="bFC-HY-nz7"/>
+                <outlet property="userNameLB" destination="6YX-h4-7yA" id="7WS-LS-dbI"/>
+            </connections>
             <point key="canvasLocation" x="346.5" y="281"/>
         </tableViewCell>
     </objects>

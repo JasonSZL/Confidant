@@ -24,4 +24,13 @@ static Util *defaultUtil=NULL;
     UIImage *_decodedImage      = [UIImage imageWithData:_decodedImageData];
     return _decodedImage;
 }
+-(void)showAlertView:(NSString*)stringTips parent:(UIViewController*)parent {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:stringTips message:nil delegate:parent cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alertView show];
+}
+-(long)getSystemTime{
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    long  dTime = [[NSNumber numberWithDouble:time] longValue]; // 将double转为long long型
+    return dTime;
+};
 @end

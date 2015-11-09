@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface FateController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+#import "User.h"
+@interface FateController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *recommondTBView;
-
+@property(nonatomic,retain)NSMutableArray<User *> *recommondList;
 @end

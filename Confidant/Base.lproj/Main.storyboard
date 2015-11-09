@@ -410,7 +410,7 @@
             </objects>
             <point key="canvasLocation" x="3248" y="-1271"/>
         </scene>
-        <!--冻手冻脚-->
+        <!--详细信息-->
         <scene sceneID="hb1-oA-Hh9">
             <objects>
                 <viewController id="gVa-wQ-dxP" customClass="ShowUserDataController" sceneMemberID="viewController">
@@ -421,9 +421,31 @@
                     <view key="view" contentMode="scaleToFill" id="qR5-Cl-pLV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tyA-2p-k62">
+                                <rect key="frame" x="0.0" y="64" width="600" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="vpX-76-aQI"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MwO-6V-H1j">
+                                <rect key="frame" x="0.0" y="192" width="600" height="359"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tyA-2p-k62" firstAttribute="leading" secondItem="qR5-Cl-pLV" secondAttribute="leading" id="Aep-K6-oy5"/>
+                            <constraint firstItem="MwO-6V-H1j" firstAttribute="bottom" secondItem="o8q-ps-eUs" secondAttribute="top" id="Eo9-FG-Te1"/>
+                            <constraint firstItem="MwO-6V-H1j" firstAttribute="leading" secondItem="tyA-2p-k62" secondAttribute="leading" id="Oee-9y-hwp"/>
+                            <constraint firstItem="tyA-2p-k62" firstAttribute="top" secondItem="Dzq-xh-tSj" secondAttribute="bottom" id="XxV-ox-aqb"/>
+                            <constraint firstAttribute="trailing" secondItem="MwO-6V-H1j" secondAttribute="trailing" id="e8x-LA-N2a"/>
+                            <constraint firstItem="MwO-6V-H1j" firstAttribute="top" secondItem="tyA-2p-k62" secondAttribute="bottom" id="qrR-DM-aKO"/>
+                            <constraint firstItem="MwO-6V-H1j" firstAttribute="trailing" secondItem="tyA-2p-k62" secondAttribute="trailing" id="v9Z-xr-zdq"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="冻手冻脚" prompt="那你呢" id="hzu-z6-GIN"/>
+                    <navigationItem key="navigationItem" title="详细信息" id="hzu-z6-GIN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugo-HR-VQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
